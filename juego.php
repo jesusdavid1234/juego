@@ -1,0 +1,46 @@
+<?php
+
+
+session_start();
+if (empty($_SESSION["id"])){
+    header("location:formulario.php");
+
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jugar Piedra, Papel y Tijera</title>
+    <link rel="stylesheet" href="juego.css">
+</head>
+<body>
+
+    <div class="container">
+        <?php
+        echo $_SESSION["usuario"];
+        ?> <br>
+        <a href="controlador/cerrrarsesion.php">Salir</a>
+        <h1>¡Bienvenido! Vamos a jugar Piedra, Papel y Tijera</h1>
+               
+        <div class="eleccion">
+            <button id="piedra" class="boton"><img src="img/piedra.png" alt="Piedra"></button>
+            <button id="papel" class="boton"><img src="img/papel.png" alt="Papel"></button>
+            <button id="tijera" class="boton"><img src="img/tijera.png" alt="Tijera"></button>
+        </div>
+        
+        <div class="resultado" id="resultado">
+            <p>Haz tu elección para comenzar el juego.</p>
+        </div>
+
+        <div class="images" id="images">
+            <p><strong>Tu elección:</strong> <span id="eleccion-jugador">-</span></p>
+            <p><strong>Elección de la computadora:</strong> <span id="eleccion-computadora">-</span></p>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
